@@ -11,7 +11,7 @@ require("dotenv").config();
 // Connectez-vous à MongoDB en utilisant les variables d'environnement pour le nom d'hôte et le mot de passe
 mongoose
   .connect(
-    `mongodb+srv://${process.env.hostName}:${process.env.hostPw}@cluster0.p8aadq7.mongodb.net/?retryWrites=true&w=majority`,
+    `mongodb+srv://${process.env.hostName}:${process.env.hostPw}@hot-takes.mhna1vz.mongodb.net/?retryWrites=true&w=majority`,
     {
       useNewUrlParser: true,
       useUnifiedTopology: true,
