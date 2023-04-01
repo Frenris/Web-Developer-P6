@@ -25,6 +25,7 @@ exports.creatSauce = (req, res, next) => {
     .then(() => res.status(201).json({ message: "Sauce enregistré !" }))
     .catch((error) => res.status(400).json({ error }));
 };
+
 exports.getSauces = (req, res, next) => {
   // Interroger la base de données pour toutes les sauces
   Sauce.find()
@@ -37,6 +38,7 @@ exports.getSauces = (req, res, next) => {
       res.status(400).json({ error });
     });
 };
+
 exports.getOneSauce = (req, res, next) => {
   // Interroger la base de données pour une sauce avec l'ID fourni
   Sauce.findOne({ _id: req.params.id })
@@ -49,6 +51,7 @@ exports.getOneSauce = (req, res, next) => {
       res.status(404).json({ error });
     });
 };
+
 exports.modifySauce = (req, res, next) => {
   // Vérifier si une image a été téléchargée dans la demande
   const sauceObject = req.file
@@ -92,6 +95,7 @@ exports.modifySauce = (req, res, next) => {
       res.status(400).json({ error });
     });
 };
+
 exports.deleteSauce = (req, res, next) => {
   // Trouver la sauce avec l'ID spécifié dans les paramètres de la requête
   Sauce.findOne({ _id: req.params.id })
@@ -185,11 +189,9 @@ exports.likeSauce = (req, res, next) => {
       }
     } else {
       // Si la valeur similaire n'est pas 1, 0 ou -1, renvoie une erreur
-      return res
-        .status(400)
-        .json({
-          message: "Valeur like non valide. Il doit être soit 1, 0 ou -1.",
-        });
+      return res.status(400).json({
+        message: "Valeur like non valide. Il doit être soit 1, 0 ou -1.",
+      });
     }
     // Enregistrer les informations mises à jour sur la sauce
     sauce

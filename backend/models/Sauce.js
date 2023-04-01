@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+
 //Création de schéma de donnée
 const sauceSchema = mongoose.Schema({
     userId: { type: String, required: true },
@@ -13,5 +14,6 @@ const sauceSchema = mongoose.Schema({
     usersLiked: [{ type: String}],
     usersDisliked: [{ type: String}],
 });
+
 //Exporter model de schéma créé pour pouvoir l'exploiter
-module.exports = mongoose.model('Sauce', sauceSchema);
+module.exports = mongoose.model("Sauce", sauceSchema);
